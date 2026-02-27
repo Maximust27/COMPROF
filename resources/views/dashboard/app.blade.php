@@ -89,13 +89,13 @@
             <nav class="flex-1 px-5 mt-8 overflow-y-auto custom-scrollbar relative z-10">
                 <ul class="space-y-3">
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 bg-white/10 text-white rounded-2xl font-semibold transition-all shadow-lg shadow-black/10">
+                        <a href="{{ route('dashboard') }}" class="flex items-center gap-4 px-5 py-4 bg-white/10 text-white rounded-2xl font-semibold transition-all shadow-lg shadow-black/10">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                             <span class="text-[16px]">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="{{ route('about') }}" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                             <span class="text-[16px]">About Us</span>
                         </a>
@@ -161,7 +161,7 @@
         <main class="flex-1 ml-[260px] p-10">
 
             <!-- Dynamic Content Yield -->
-            <div class="mt-12">
+            <div>
                 @yield('content')
             </div>
 
