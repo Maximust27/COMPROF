@@ -159,12 +159,23 @@
             transform: scale(1);
             pointer-events: auto;
         }
+
+        /* ================= PAGE ENTER ANIMATION ================= */
+        .page-enter {
+            opacity: 0;
+            animation: fadeInPage 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; filter: blur(10px); }
+            to { opacity: 1; filter: blur(0); }
+        }
     </style>
 </head>
 
 <body>
 
-<div id="pageBg">
+<div id="pageBg" class="page-enter">
 
     <!-- ✅ BACKGROUND LAYERS -->
     <div class="bg-layer bg-default"></div>

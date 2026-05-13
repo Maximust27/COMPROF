@@ -133,71 +133,105 @@
         }
         
         @keyframes pulse-glow {
-            0%, 100% { filter: drop-shadow(0 0 20px rgba(59, 174, 109, 0.6)); }
-            50% { filter: drop-shadow(0 0 40px rgba(59, 174, 109, 0.9)); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(59, 174, 109, 0.4)); }
+            50% { filter: drop-shadow(0 0 40px rgba(59, 174, 109, 0.8)); }
         }
         
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes logoReveal {
+            from { opacity: 0; transform: scale(0.8) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
         }
         
-        .animate-float {
-            animation: float 4s ease-in-out infinite;
+        /* Animation Classes */
+        .animate-ellipse-left {
+            animation: slideInLeft 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .animate-ellipse-right {
+            animation: slideInRight 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .animate-logo-wrapper {
+            animation: float 4s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
+        }
+
+        .animate-logo-reveal {
+            opacity: 0;
+            animation: logoReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
         
-        .animate-pulse-glow {
-            animation: pulse-glow 3s ease-in-out infinite;
+        .animate-title {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
         }
-        
-        .animate-fade-in {
-            animation: fadeInUp 1.2s ease-out forwards;
+
+        .animate-tagline {
+            opacity: 0;
+            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
         }
         
         /* Responsive ellipse */
         @media (max-width: 768px) {
-            .ellipse-left {
-                width: 500px;
-                height: 500px;
-                left: -300px;
-                top: 50px;
-            }
-            
-            .ellipse-right {
-                width: 500px;
-                height: 500px;
-                right: -300px;
-                top: 50px;
-            }
+            .ellipse-left { width: 500px; height: 500px; left: -300px; top: 50px; }
+            .ellipse-right { width: 500px; height: 500px; right: -300px; top: 50px; }
         }
     </style>
 </head>
 <body>
     <div class="main-bg">
         <!-- Background Ellipse -->
-        <div class="ellipse-left"></div>
-        <div class="ellipse-right"></div>
+        <div class="ellipse-left animate-ellipse-left"></div>
+        <div class="ellipse-right animate-ellipse-right"></div>
         
         <!-- ✅ Logo -->
-        <div class="animate-float animate-pulse-glow">
+        <div class="animate-logo-wrapper">
             <img 
                 src="{{ asset('images/Group 70.png') }}" 
                 alt="PROTIC Logo"
-                class="logo-svg"
+                class="logo-svg animate-logo-reveal"
             >
         </div>
         
         <!-- Text -->
-        <div class="text-container animate-fade-in">
-            <h1 class="main-title">PROTIC</h1>
-            <p class="tagline">Improve Skill To Innovate</p>
+        <div class="text-container">
+            <h1 class="main-title animate-title">PROTIC</h1>
+            <p class="tagline animate-tagline">Improve Skill To Innovate</p>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tunggu 2.5 detik agar semua animasi reveal selesai dengan elegan
+            setTimeout(() => {
+                // Ubah body menjadi hitam pekat agar transisi ke login (yang gelap) mulus
+                document.body.style.backgroundColor = '#000';
+                
+                // Fade out pembungkus utamanya saja
+                const mainBg = document.querySelector('.main-bg');
+                mainBg.style.transition = 'opacity 0.6s ease-in-out';
+                mainBg.style.opacity = '0';
+                
+                // Pindah ke login setelah transisi selesai
+                setTimeout(() => {
+                    window.location.href = "{{ route('login') }}";
+                }, 600);
+            }, 2500);
+        });
+    </script>
 </body>
 </html>

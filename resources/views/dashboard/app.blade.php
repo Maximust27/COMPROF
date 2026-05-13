@@ -87,57 +87,61 @@
             <div class="sidebar-ellipse-3"></div>
             
             <nav class="flex-1 px-5 mt-8 overflow-y-auto custom-scrollbar relative z-10">
+                @php
+                    $activeClass = 'flex items-center gap-4 px-5 py-4 bg-white/10 text-white rounded-2xl font-semibold transition-all shadow-lg shadow-black/10';
+                    $inactiveClass = 'flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all';
+                @endphp
                 <ul class="space-y-3">
                     <li>
-                        <a href="{{ route('dashboard') }}" class="flex items-center gap-4 px-5 py-4 bg-white/10 text-white rounded-2xl font-semibold transition-all shadow-lg shadow-black/10">
+                        <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                             <span class="text-[16px]">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('about') }}" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="{{ route('about') }}" class="{{ request()->routeIs('about') || request()->routeIs('about.*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                             <span class="text-[16px]">About Us</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="#" class="{{ request()->is('divisi*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             <span class="text-[16px]">Divisi</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="#" class="{{ request()->is('program*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                             <span class="text-[16px]">Program</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="#" class="{{ request()->is('prestasi*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>
                             <span class="text-[16px]">Prestasi</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="#" class="{{ request()->is('artikel*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                             <span class="text-[16px]">Artikel</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="#" class="{{ request()->is('galery*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                             <span class="text-[16px]">Galery</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="#" class="{{ request()->is('users*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                             <span class="text-[16px]">Users</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center gap-4 px-5 py-4 text-white hover:text-white/70 hover:bg-white/5 rounded-2xl transition-all">
+                        <a href="#" class="{{ request()->is('setting*') ? $activeClass : $inactiveClass }}">
                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="3"></circle>
                                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
