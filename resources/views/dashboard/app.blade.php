@@ -63,12 +63,12 @@
             <!-- Profile -->
             <div class="flex items-center gap-4 cursor-pointer group">
                 <div class="relative">
-                    <img src="https://i.pravatar.cc/150?u=admin" class="w-12 h-12 rounded-full border-2 border-gray-100 object-cover shadow-sm transition-transform group-hover:scale-105" alt="Admin">
+                    <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=2AAC63&color=fff" class="w-12 h-12 rounded-full border-2 border-gray-100 object-cover shadow-sm transition-transform group-hover:scale-105" alt="Profile">
                     <div class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full"></div>
                 </div>
                 <div class="hidden sm:block">
-                    <p class="text-[14px] font-bold text-gray-800 leading-tight">Admin</p>
-                    <p class="text-[12px] text-gray-500 font-medium">Administrator</p>
+                    <p class="text-[14px] font-bold text-gray-800 leading-tight">{{ Auth::user()->name }}</p>
+                    <p class="text-[12px] text-gray-500 font-medium">{{ Auth::user()->email }}</p>
                 </div>
                 <svg class="text-gray-400 group-hover:translate-y-0.5 transition-transform" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
             </div>
@@ -150,10 +150,13 @@
 
             <!-- Sign Out -->
             <div class="p-8 relative z-10 mt-auto">
-                <button class="w-full flex items-center justify-center gap-3 py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-2xl font-bold shadow-xl shadow-black/20 transition-all text-base transform hover:scale-[1.02]">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                    Sign Out
-                </button>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="w-full flex items-center justify-center gap-3 py-4 bg-[#b91c1c] hover:bg-[#991b1b] text-white rounded-2xl font-bold shadow-xl shadow-black/20 transition-all text-base transform hover:scale-[1.02]">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        Sign Out
+                    </button>
+                </form>
             </div>
         </aside>
 

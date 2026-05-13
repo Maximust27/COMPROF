@@ -210,7 +210,13 @@
                 <form method="POST" action="{{ route('login') }}" class="space-y-5">
                     @csrf
 
-                    <input id="username" type="text" name="username"
+                    @error('username')
+                        <div class="text-red-500 text-sm px-1">
+                            {{ $message }}
+                        </div>
+                    @enderror
+
+                    <input id="username" type="text" name="username" value="{{ old('username') }}"
                            class="input-protic"
                            placeholder="masukan username">
 

@@ -1,11 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {return view('LandingPage'); })->name('landing-page');
 
-Route::get('/login', function () {return view('auth.login'); })->name('login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function () {return view('auth.login'); })->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+});
 
-Route::get('/dashboard', function () {return view('dashboard.index'); })->name('dashboard');
-
-route::get('/dashboard/about', function () {return view('dashboard.about'); })->name('about');
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', function () {return view('dashboard.index'); })->name('dashboard');
+    Route::get('/dashboard/about', function () {return view('dashboard.about'); })->name('about');
+});
