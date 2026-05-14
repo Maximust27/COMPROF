@@ -138,32 +138,34 @@
         }
         
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes logoReveal {
-            from { opacity: 0; transform: scale(0.8) translateY(30px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+            0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-100px); }
-            to { opacity: 1; transform: translateX(0); }
+            0% { opacity: 0; transform: translateX(-100px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
+            0% { opacity: 0; transform: translateX(100px); }
+            100% { opacity: 1; transform: translateX(0); }
         }
         
         /* Animation Classes */
         .animate-ellipse-left {
-            animation: slideInLeft 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            animation: slideInLeft 1s ease-out forwards;
         }
 
         .animate-ellipse-right {
-            animation: slideInRight 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            animation: slideInRight 1s ease-out forwards;
         }
 
         .animate-logo-wrapper {
@@ -172,17 +174,17 @@
 
         .animate-logo-reveal {
             opacity: 0;
-            animation: logoReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            animation: logoReveal 1s ease-out forwards;
         }
         
         .animate-title {
             opacity: 0;
-            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
         }
 
         .animate-tagline {
             opacity: 0;
-            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
         }
         
         /* Responsive ellipse */
