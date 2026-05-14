@@ -130,7 +130,7 @@
                 <!-- Title Input -->
                 <div>
                     <label for="inputTitle" class="block text-[16px] text-gray-700 font-medium mb-2">Title</label>
-                    <div class="p-[1px] rounded-[10px]" style="background: linear-gradient(90deg, #A8FFCE 0%, #114B2A 100%);">
+                    <div class="p-[1px] rounded-[10px]" style="background: linear-gradient(270deg, #06291E -12.27%, #307E52 15.54%, #A8FFCE 42.34%, #307E52 70.64%, #000000 110.65%);">
                         <input type="text" id="inputTitle" name="title" value="{{ old('title', $about->title ?? 'Tentang PROTIC') }}" required class="w-full h-[50px] bg-white rounded-[9px] px-4 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#307E52] focus:ring-offset-1 transition-all">
                     </div>
                 </div>
@@ -138,8 +138,8 @@
                 <!-- Content Input -->
                 <div>
                     <label for="inputContent" class="block text-[16px] text-gray-700 font-medium mb-2">Content</label>
-                    <div class="p-[1px] rounded-[10px]" style="background: linear-gradient(90deg, #A8FFCE 0%, #114B2A 100%);">
-                        <textarea id="inputContent" name="content" required class="w-full h-[150px] bg-white rounded-[9px] p-4 text-gray-800 text-[14px] resize-y focus:outline-none focus:ring-2 focus:ring-[#307E52] focus:ring-offset-1 transition-all">{{ old('content', $about->content ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.') }}</textarea>
+                    <div class="p-[1px] rounded-[10px]" style="background: linear-gradient(270deg, #06291E -12.27%, #307E52 15.54%, #A8FFCE 42.34%, #307E52 70.64%, #000000 110.65%);">
+                        <textarea id="inputContent" name="content" required class="block w-full h-[150px] bg-white rounded-[9px] p-4 text-gray-800 text-[14px] resize-none focus:outline-none focus:ring-2 focus:ring-[#307E52] focus:ring-offset-1 transition-all border-none">{{ old('content', $about->content ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.') }}</textarea>
                     </div>
                 </div>
 
@@ -148,13 +148,13 @@
                     <!-- Visi -->
                     <div>
                         <label for="inputVisi" class="block text-[16px] text-gray-700 font-medium mb-2">Visi</label>
-                        <textarea id="inputVisi" name="visi" required class="w-full h-[150px] bg-[#E8EAE9] rounded-[10px] p-4 text-gray-800 text-[13px] resize-y focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all border-none">{{ old('visi', $about->visi ?? '1. Menjadikan Unit Kegiatan Mahasiswa yang dapat menampung, menjadi wadah, serta memfasilitasi minat dan bakat mahasiswa dalam pengembangan diri mahasiswa Politeknik Negeri Cilacap.') }}</textarea>
+                        <textarea id="inputVisi" name="visi" required class="w-full h-[150px] bg-[#E8EAE9] rounded-[10px] p-4 text-gray-800 text-[13px] resize-none focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all border-none">{{ old('visi', $about->visi ?? '1. Menjadikan Unit Kegiatan Mahasiswa yang dapat menampung, menjadi wadah, serta memfasilitasi minat dan bakat mahasiswa dalam pengembangan diri mahasiswa Politeknik Negeri Cilacap.') }}</textarea>
                     </div>
 
                     <!-- Misi -->
                     <div>
                         <label for="inputMisi" class="block text-[16px] text-gray-700 font-medium mb-2">Misi</label>
-                        <textarea id="inputMisi" name="misi" required class="w-full h-[150px] bg-[#E8EAE9] rounded-[10px] p-4 text-gray-800 text-[13px] resize-y focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all border-none">{{ old('misi', $about->misi ?? "1. Dengan berorientasi pada bidang pemrograman melalui subdivisi yang meliputi Web, Mobile, UI/UX, DevOps dan Data.\n2. UKM PROTIC akan menjalinkan kerja sama dengan pihak lain baik internal maupun eksternal kampus untuk mengoptimalkan pengembangan potensi anggotanya.") }}</textarea>
+                        <textarea id="inputMisi" name="misi" required class="w-full h-[150px] bg-[#E8EAE9] rounded-[10px] p-4 text-gray-800 text-[13px] resize-none focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all border-none">{{ old('misi', $about->misi ?? "1. Dengan berorientasi pada bidang pemrograman melalui subdivisi yang meliputi Web, Mobile, UI/UX, DevOps dan Data.\n2. UKM PROTIC akan menjalinkan kerja sama dengan pihak lain baik internal maupun eksternal kampus untuk mengoptimalkan pengembangan potensi anggotanya.") }}</textarea>
                     </div>
                 </div>
 
